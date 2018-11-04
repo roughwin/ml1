@@ -69,3 +69,7 @@ from sklearn import metrics
 
 yTrainPred = clf.predict(Xtrain)
 print(metrics.accuracy_score(Ytrain, yTrainPred))
+
+ypred = clf.predict(Xtest)
+
+print(metrics.accuracy_score(Ytest, ypred))
