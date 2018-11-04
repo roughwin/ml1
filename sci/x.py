@@ -54,9 +54,18 @@ for i in [0, 1, 2]:
   axes[i].set_ylim(Ymin, Ymax)
   xx = Xtrain[:, 0]
   yy = Xtrain[:, 1]
-  print(axes[i])
   axes[i].scatter(xx, yy, c=Ytrain, cmap=plt.cm.prism)
   ys = (-clf.intercept_[i] - xs * clf.coef_[i, 0])/ clf.coef_[i, 1]
   axes[i].plot(xs, ys)
 
-plt.show()
+# plt.show()
+
+print(clf.predict(scaler.transform([[4.7,3.1]])))
+
+print(clf.decision_function(scaler.transform([[4.7, 3.1]])))
+
+
+from sklearn import metrics
+
+yTrainPred = clf.predict(Xtrain)
+print(metrics.accuracy_score(Ytrain, yTrainPred))
